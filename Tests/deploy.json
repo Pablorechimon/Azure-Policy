@@ -1,0 +1,34 @@
+{
+    "Environment": {
+        "PolicyDev": {
+            "Scopes": [
+                {
+                    "scope": "providers/Microsoft.Management/managementGroups/POLICYCOLLAB",
+                    "NonComplianceMessage": "Tests are not Compliant",
+                    "Tests": [
+                        {
+                            "Name": "Test1",
+                            "Type": "Bicep",
+                            "Assert": "Fail",
+                            "Path": "Tests/DeployRestrictedResource/main.bicep"
+                        },
+                        {
+                            "Name": "Test2",
+                            "Type": "Powershell",
+                            "Assert": "Pass",
+                            "Path": "Tests/DeployRestrictedResource/main.ps1"
+                        }
+                    ]
+                }
+            ]
+        },
+        "Deployments": {
+            "Scopes": [
+                {
+                    "scope": "providers/Microsoft.Management/managementGroups/JMFAMILY",
+                    "NonComplianceMessage": "Tests are not Compliant"
+                }
+            ]
+        }
+    }
+}
